@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Vendas.Models.Enums
 {
-    public enum SaleStatus : int
+    public enum SalesStatus : int
     {
         Pending = 0,
         Billed = 1,
