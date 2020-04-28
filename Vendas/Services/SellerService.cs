@@ -20,5 +20,11 @@ namespace Vendas.Services
             //acessa a fonte de dados de vendedores, e converter para uma lista
             return _context.Seller.ToList();
         }
+
+        public void Insert(Seller obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
+        }
     }
 }
