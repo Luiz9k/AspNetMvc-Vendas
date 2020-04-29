@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vendas.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Vendas.Services
 {
@@ -29,7 +30,8 @@ namespace Vendas.Services
 
         public Seller FindById(int id)
         {
-            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+            //EagerLoading .Include(obj => obj.Department). Para carregar o nome do departamento em detalhes
+            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
         }
 
         public void Remove(int id)
