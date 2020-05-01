@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vendas.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Vendas.Services
 {
@@ -15,10 +16,10 @@ namespace Vendas.Services
             _context = context;
         }
 
-        public List<Department> FindAll()
+        public async Task<List<Department>> FindAllAsync()
         {
             //SERVIÇO PARA RETORNAR OS DEPARTAMENTOS ORDENADOS
-            return _context.Department.OrderBy(x => x.Name).ToList();
+            return await _context.Department.OrderBy(x => x.Name).ToListAsync();
         }
     }
 }
